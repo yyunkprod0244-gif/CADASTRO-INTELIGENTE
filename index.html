@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Cadastro Inteligente</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <main class="page-container">
+
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-icon">CI</div>
+
+        <div>
+          <span class="brand-overline">FORMULÁRIO</span>
+          <h1>Cadastro inteligente</h1>
+        </div>
+      </div>
+
+     <button
+         id="botaoTema"
+         class="theme-button"
+         type="button"
+>
+        <span id="themeIcon">☾</span>
+        <span id="themeText">Tema escuro</span>
+</button>
+
+    </header>
+
+    <section class="hero-card">
+      <div class="hero-content">
+        <span class="tag">VIA CEP + LOCAL STORAGE</span>
+
+        <h2>
+          Cadastre seus dados
+          <span>com praticidade.</span>
+        </h2>
+
+        <p>
+          Informe seu CEP e o endereço será preenchido automaticamente.
+          Seus dados ficam salvos no navegador.
+        </p>
+      </div>
+
+      <div class="hero-orb">
+        <div class="orb-inner">+</div>
+      </div>
+    </section>
+
+    <form id="registerForm" class="form-card">
+
+      <div class="form-header">
+        <div>
+          <span class="section-label">01 / DADOS PESSOAIS</span>
+          <h2>Informações básicas</h2>
+        </div>
+
+        <span id="savedStatus" class="saved-status">
+          ● Dados salvos
+        </span>
+      </div>
+
+      <div class="form-grid personal-grid">
+
+        <div class="input-group input-large">
+          <label for="nome">Nome completo</label>
+          <input
+            id="nome"
+            name="nome"
+            type="text"
+            placeholder="Digite seu nome"
+            required
+          >
+        </div>
+
+        <div class="input-group">
+          <label for="email">E-mail</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="seuemail@email.com"
+            required
+          >
+        </div>
+
+        <div class="input-group">
+          <label for="telefone">Telefone</label>
+          <input
+            id="telefone"
+            name="telefone"
+            type="tel"
+            placeholder="(00) 00000-0000"
+          >
+        </div>
+
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="form-header">
+        <div>
+          <span class="section-label">02 / ENDEREÇO</span>
+          <h2>Onde você mora?</h2>
+        </div>
+
+        <span class="api-badge">API ViaCEP</span>
+      </div>
+
+      <div class="form-grid address-grid">
+
+        <div class="input-group">
+          <label for="cep">CEP</label>
+
+          <div class="cep-wrapper">
+            <input
+              id="cep"
+              name="cep"
+              type="text"
+              placeholder="00000-000"
+              maxlength="9"
+              required
+            >
+
+            <span class="loading">...</span>
+          </div>
+
+          <small id="cepMessage" class="message-normal">
+            Digite o CEP para buscar o endereço.
+          </small>
+        </div>
+
+        <div class="input-group input-large">
+          <label for="logradouro">Logradouro</label>
+          <input
+            id="logradouro"
+            name="logradouro"
+            type="text"
+            placeholder="Rua, avenida..."
+            required
+          >
+        </div>
+
+        <div class="input-group">
+          <label for="numero">Número</label>
+          <input
+            id="numero"
+            name="numero"
+            type="text"
+            placeholder="Ex: 123"
+            required
+          >
+        </div>
+
+        <div class="input-group">
+          <label for="complemento">Complemento</label>
+          <input
+            id="complemento"
+            name="complemento"
+            type="text"
+            placeholder="Apartamento, bloco..."
+          >
+        </div>
+
+        <div class="input-group">
+          <label for="bairro">Bairro</label>
+          <input
+            id="bairro"
+            name="bairro"
+            type="text"
+            placeholder="Digite o bairro"
+            required
+          >
+        </div>
+
+        <div class="input-group">
+          <label for="cidade">Cidade</label>
+          <input
+            id="cidade"
+            name="cidade"
+            type="text"
+            placeholder="Digite a cidade"
+            required
+          >
+        </div>
+
+        <div class="input-group">
+          <label for="uf">Estado</label>
+
+          <select id="uf" name="uf" required>
+            <option value="">Selecione</option>
+            <option value="AC">Acre</option>
+            <option value="AL">Alagoas</option>
+            <option value="AP">Amapá</option>
+            <option value="AM">Amazonas</option>
+            <option value="BA">Bahia</option>
+            <option value="CE">Ceará</option>
+            <option value="DF">Distrito Federal</option>
+            <option value="ES">Espírito Santo</option>
+            <option value="GO">Goiás</option>
+            <option value="MA">Maranhão</option>
+            <option value="MT">Mato Grosso</option>
+            <option value="MS">Mato Grosso do Sul</option>
+            <option value="MG">Minas Gerais</option>
+            <option value="PA">Pará</option>
+            <option value="PB">Paraíba</option>
+            <option value="PR">Paraná</option>
+            <option value="PE">Pernambuco</option>
+            <option value="PI">Piauí</option>
+            <option value="RJ">Rio de Janeiro</option>
+            <option value="RN">Rio Grande do Norte</option>
+            <option value="RS">Rio Grande do Sul</option>
+            <option value="RO">Rondônia</option>
+            <option value="RR">Roraima</option>
+            <option value="SC">Santa Catarina</option>
+            <option value="SP">São Paulo</option>
+            <option value="SE">Sergipe</option>
+            <option value="TO">Tocantins</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="form-footer">
+        <p>Seus dados são armazenados apenas neste navegador.</p>
+
+        <div class="footer-actions">
+          <button
+            id="clearButton"
+            class="clear-button"
+            type="button"
+          >
+            Limpar dados
+          </button>
+
+          <button
+            class="submit-button"
+            type="submit"
+          >
+            Salvar cadastro
+            <span>→</span>
+          </button>
+        </div>
+      </div>
+
+    </form>
+
+    <footer>
+      Projeto desenvolvido com Fetch API, ViaCEP e Web Storage API.
+    </footer>
+
+  </main>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
